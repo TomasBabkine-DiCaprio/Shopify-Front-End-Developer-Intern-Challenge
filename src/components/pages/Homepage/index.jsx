@@ -35,8 +35,6 @@ export const HomePage = () => {
                 return new Date(b.earth_date) - new Date(a.earth_date);
             });
 
-            console.log(APIdata);
-
             // Update local state with pictures
             setPictures(APIdata);
 
