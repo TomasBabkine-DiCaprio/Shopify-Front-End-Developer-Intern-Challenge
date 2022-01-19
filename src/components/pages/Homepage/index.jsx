@@ -1,8 +1,9 @@
 import "./styles.css";
 import { useEffect, useState } from "react";
 
-// Custome components
+// Custom components
 import { Post } from "../../Post";
+import { CopiedIndicator } from "../../CopiedIndicator";
 
 export const HomePage = () => {
 
@@ -23,9 +24,10 @@ export const HomePage = () => {
     const getPictures = async () => {
 
         try {
+ 
             const response = await fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=NAVCAM&api_key=AcoPa9GB74KhJziYcQk0rI9gJ1xRVSCr1zjCVoaM');
             const data = await response.json();
-
+            
             let APIdata = data.photos;
 
             // Sort data by date descending, so that newer photos are always at the top
@@ -51,11 +53,35 @@ export const HomePage = () => {
         
     }
 
+    // displays the copy to clipboard message when the state is updated in child component
+    const [copied, setCopied] = useState();
+
+    useEffect(
+        () => {
+            if (copied === true) {
+                   revertCopied();
+            }
+        }, [copied]
+    )
+    
+    // after 3 seconds, remove the nofitication that the link has been copied to clipboard
+    const revertCopied = () => {
+        setTimeout(() => {
+            setCopied(false);
+        }, 3000)
+    }
+
     return (
         <div className="homepage">
+            <div className="copiedToClipboard">
+                {
+                    copied && <CopiedIndicator />
+                }
+            </div>
             <div className="title">
                 <h1>Spacetagram</h1>
                 <h2>Image sharing from the final frontier</h2>
+                <p>(Images from Nasa's Rover Photos API)</p>
             </div>
             <div className="picturesContainer">
               {
@@ -63,7 +89,7 @@ export const HomePage = () => {
               }
               {
                 pictures.map((item) => (
-                    <Post key={item.id} img_src={item.img_src} date={item.earth_date} camera={item.camera.full_name} rover={item.rover.name}></Post>
+                    <Post key={item.id} img_src={item.img_src} date={item.earth_date} camera={item.camera.full_name} rover={item.rover.name} setCopied={setCopied}></Post>
                 ))
               }
             </div>

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 // Import Home Page component
