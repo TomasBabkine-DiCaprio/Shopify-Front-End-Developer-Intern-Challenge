@@ -1,0 +1,45 @@
+.post {
+    margin: 2em auto;
+    width: 500px;
+    background-color: #222;
+
+    border-radius: 10px;
+
+    box-shadow: rgba(149, 157, 165, 0.6) 0px 8px 24px;
+}
+
+.postUser {
+    text-align: left;
+    border-bottom: 1px solid #c4ecf7;
+    padding: 2px;
+}
+
+.post .postDesc h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 1.2em;
+    margin-left: 0.8em;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+.post .postDesc {
+    padding: 6px 0px 6px 4px;
+}
+
+.post .postDesc p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    font-size: 1em;
+    margin-left: 0.95em;
+    text-align: left;
+    margin-top: 0.2em;
+}
+
+.post .postImage img {
+    width: 500px;
+    object-fit: contain;
+    border-radius: 10px 10px 0px 0px;
+}
+
