@@ -1,4 +1,3 @@
-# Tomas Babkine-Di Caprio
 # Summer 2022 - Shopify Front-End Challenge
 
 ## Created with React
